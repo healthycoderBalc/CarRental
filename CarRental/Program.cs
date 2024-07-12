@@ -14,6 +14,8 @@ builder.Services.AddDbContext<CarRentalDbContext>(options =>
         builder.Configuration.GetConnectionString("DefaultConnection"));
 });
 
+//builder.Services.AddDefaultIdentity<User>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<CarRentalDbContext>();
+
 builder.Services.AddIdentity<User, IdentityRole>()
            .AddEntityFrameworkStores<CarRentalDbContext>()
            .AddDefaultTokenProviders();

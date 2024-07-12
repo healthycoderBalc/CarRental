@@ -1,47 +1,23 @@
 ﻿@model CarListViewModel
 
 <div class="container-fluid">
-    <div class="row">
-        <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
-            <div class="sidebar-sticky">
-                <ul class="nav flex-column">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#">
-                            <span data-feather="home"></span>
-                            Dashboard <span class="sr-only">(current)</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <span data-feather="file"></span>
-                            Reservations
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <span data-feather="shopping-cart"></span>
-                            Booking History
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <span data-feather="users"></span>
-                            Profile Settings
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-
-        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
-            <p>Here you will find all our Cars</p>
-            <div class="row">
-                @foreach (var car in Model.Cars)
-                {
-                    <div class="col-md-4 mb-3">
-                        <partial name="_CarCard" model="car" />
+    <div class="row justify-content-center">
+        <main role="main" class="col-md-12 ml-sm-auto col-lg-12 px-md-4">
+            <div class="row justify-content-center">
+                <div class="card shadow-sm pt-3 mt-3">
+                    <div class="card-body">
+                        <h2 class="text-center mb-4">Here you will find all our Cars</h2>
+                        <hr />
+                        <div class="row">
+                            @foreach (var car in Model.Cars)
+                            {
+                                <div class="col-md-4 mb-3">
+                                    <partial name="_CarCard" model="car" />
+                                </div>
+                            }
+                        </div>
                     </div>
-                }
+                </div>
             </div>
         </main>
     </div>

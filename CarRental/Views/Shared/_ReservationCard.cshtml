@@ -1,12 +1,16 @@
 ﻿@model Reservation
 
-<h2>Reservation Nº @Model.Id</h2>
-<div>Car Id: @Model.Car.Id</div>
-<div>User Id: @Model.User.Id</div>
-<div>From: @Model.StartDate</div>
-<div>To: @Model.EndDate</div>
-<div>TotalPrice: @Model.TotalPrice</div>
-<div>
-    <h3><a class= "btn btn-secondary" asp-controller="Reservation" asp-action="Details" asp-route-id="@Model.Id">Go to this reservation</a></h3>
-    <h3><a asp-controller="Reservation" asp-action="RemoveReservation" asp-route-id="@Model.Id">Remove this reservation</a></h3>
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">Reservation Nº @Model.Id</h5>
+        <p class="card-text">Car Id: @Model.Car.Id</p>
+        <p class="card-text">User Id: @Model.User.Id</p>
+        <p class="card-text">From: @Model.StartDate</p>
+        <p class="card-text">To: @Model.EndDate</p>
+        <p class="card-text">TotalPrice: @Model.TotalPrice</p>
+        <div>
+            <h3><a class="btn btn-secondary" asp-controller="Reservation" asp-action="Details" asp-route-id="@Model.Id">Go to this reservation</a></h3>
+            <p><a asp-controller="Reservation" asp-action="RemoveReservation" asp-route-id="@Model.Id">Remove this reservation</a></p>
+        </div>
+    </div>
 </div>

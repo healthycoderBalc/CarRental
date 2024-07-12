@@ -1,0 +1,86 @@
+﻿@model EditUserViewModel
+
+@{
+    ViewData["Title"] = "Edit User";
+}
+
+<h1 class="text-center">@ViewData["Title"]</h1>
+
+<div class="row justify-content-center">
+    <div class="col-md-9">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <form asp-action="Edit" method="post">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="Id" />
+                    <div class="row">
+                        <div class="form-floating mb-3 col-md-6">
+                            <input asp-for="FirstName" class="form-control" placeholder="First Name*" />
+                            <label asp-for="FirstName" class="ms-3 text-black-50">First Name*</label>
+                            <span asp-validation-for="FirstName" class="text-danger"></span>
+                        </div>
+                        <div class="form-floating mb-3 col-md-6">
+                            <input asp-for="LastName" class="form-control" placeholder="Last Name" />
+                            <label asp-for="LastName" class="ms-3 text-black-50">Last Name*</label>
+                            <span asp-validation-for="LastName" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-floating mb-3 col-md-6">
+                            <input asp-for="Email" class="form-control" autocomplete="username" placeholder="name@example.com" />
+                            <label asp-for="Email" class="ms-3 text-black-50">Email*</label>
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+                        <div class="form-floating mb-3 col-md-6">
+                            <input asp-for="PhoneNumber" class="form-control" placeholder="Phone Number" />
+                            <label asp-for="PhoneNumber" class="ms-3 text-black-50">Phone Number*</label>
+                            <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-floating mb-3 col-md-6">
+                            <input asp-for="DateOfBirth" class="form-control text-black-50" placeholder="Date of Birth" />
+                            <label asp-for="DateOfBirth" class="ms-3 text-black-50">Date of Birth</label>
+                            <span asp-validation-for="DateOfBirth" class="text-danger"></span>
+                        </div>
+                        <div class="form-floating mb-3 col-md-6">
+                            <input asp-for="DriversLicenseNumber" class="form-control" placeholder="Driver's License Number" />
+                            <label asp-for="DriversLicenseNumber" class="ms-3 text-black-50">Driver's License Number*</label>
+                            <span asp-validation-for="DriversLicenseNumber" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-floating mb-3 col-md-6">
+                            <input asp-for="AddressLine1" class="form-control" placeholder="Address Line 1" />
+                            <label asp-for="AddressLine1" class="ms-3 text-black-50">Address Line 1*</label>
+                            <span asp-validation-for="AddressLine1" class="text-danger"></span>
+                        </div>
+                        <div class="form-floating mb-3 col-md-6">
+                            <input asp-for="AddressLine2" class="form-control" placeholder="Address Line 2" />
+                            <label asp-for="AddressLine2" class="ms-3 text-black-50">Address Line 2</label>
+                            <span asp-validation-for="AddressLine2" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-floating mb-3 col-md-6">
+                            <input asp-for="City" class="form-control" placeholder="City" />
+                            <label asp-for="City" class="ms-3 text-black-50">City*</label>
+                            <span asp-validation-for="City" class="text-danger"></span>
+                        </div>
+                        <div class="form-floating mb-3 col-md-6">
+                            <select asp-for="Country" class="form-control" asp-items="Model.Countries"></select>
+                            <label asp-for="Country" class="ms-3 text-black-50">Country*</label>
+                            <span asp-validation-for="Country" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <button type="submit" class="w-100 btn btn-lg btn-primary">Save</button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

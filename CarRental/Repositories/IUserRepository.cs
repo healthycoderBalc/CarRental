@@ -5,6 +5,8 @@ namespace CarRental.Repositories
     public interface IUserRepository
     {
         IEnumerable<User> GetAllUsers();
-        User? GetUserById(int id);
+        User? GetUserById(string id);
+
+        Task<bool> UpdateUserAsync(User user);
     }
 }
