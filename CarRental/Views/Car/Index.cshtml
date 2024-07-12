@@ -1,7 +1,4 @@
-﻿@model HomeViewModel
-@{
-    ViewData["Title"] = "Home Page";
-}
+﻿@model CarListViewModel
 
 <div class="container-fluid">
     <div class="row">
@@ -35,16 +32,9 @@
                 </ul>
             </div>
         </nav>
-        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
-            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                <h1 class="h2">Welcome</h1>
-            </div>
-            @* <div class="col-md-12 mt-3 text-center"> *@
-                @* <a asp-controller="Car" asp-action"Search" class="btn btn-primary">Search</a> *@
-            @* </div> *@
-            <partial name="_SearchForm" />
-            <p>Here you will find today's available Cars</p>
 
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+            <p>Here you will find all our Cars</p>
             <div class="row">
                 @foreach (var car in Model.Cars)
                 {
@@ -54,7 +44,6 @@
                 }
             </div>
         </main>
-     
     </div>
 </div>
 

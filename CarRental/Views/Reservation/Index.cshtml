@@ -1,0 +1,7 @@
+﻿@model ReservationListViewModel
+
+<h1>@Model.CurrentUser</h1>
+@foreach (var reservation in Model.Reservations)
+{
+    <partial name="_ReservationCard" model="reservation" />
+}

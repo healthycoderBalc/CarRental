@@ -1,0 +1,33 @@
+﻿<div class="search-bar">
+    <form asp-controller="Car" asp-action="Search" method="get">
+        <div class="form-row align-items-center mb-3">
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="location" class="sr-only">Location</label>
+                    <input type="text" class="form-control" id="location" name="location" placeholder="Location">
+                </div>
+                <div class="col-md-6">
+                    <label for="make" class="sr-only">Make</label>
+                    <input type="text" class="form-control" id="make" name="make" placeholder="Car Make">
+                </div>
+            </div>
+        </div>
+        <div class="form-row align-items-center mb-3">
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="startDate" class="sr-only">Start Date</label>
+                    <input type="date" class="form-control" id="startDate" name="startDate">
+                </div>
+                <div class="col-md-6">
+                    <label for="endDate" class="sr-only">End Date</label>
+                    <input type="date" class="form-control" id="endDate" name="endDate">
+                </div>
+            </div>
+        </div>
+        <div class="form-row align-items-center">
+            <div class="col-md-12 text-center">
+                <button type="submit" class="btn btn-primary">Search</button>
+            </div>
+        </div>
+    </form>
+</div>

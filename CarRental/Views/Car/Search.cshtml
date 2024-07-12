@@ -1,0 +1,26 @@
+﻿@model CarListViewModel
+@{
+    ViewData["Title"] = "Search Results";
+}
+
+<div class="container">
+    <h2 class="mt-4">Search Results</h2>
+
+    <div class="row">
+        @if (!Model.Cars.Any())
+        {
+            <div class="col-md-12">
+                <p>No cars available for the selected criteria.</p>
+            </div>
+        }
+        else
+        {
+            @foreach (var car in Model.Cars)
+            {
+                <div class="col-md-4 mb-3">
+                    <partial name="_CarCard" model="car" />
+                </div>
+            }
+        }
+    </div>
+</div>
