@@ -1,0 +1,13 @@
+﻿@model Car
+
+<div class="card">
+    <img class="card-img-top" src="@Model.ImageUrl" alt="@Model.Id" style="max-hight: 150">
+    <div class="card-body">
+        <h5 class="card-title">@Model.Make</h5>
+        <p class="card-text">Model: @Model.Model</p>
+        @* <p class="card-text">Year: @Model.Year</p> *@
+        <p class="card-text">Price per day: @Model.PricePerDay</p>
+        @* <p class="card-text">City: @Model.City</p> *@
+        <a asp-controller="Car" asp-action="Details" asp-route-id="@Model.Id" class="btn btn-primary">Details</a>
+    </div>
+</div>

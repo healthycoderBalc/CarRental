@@ -1,0 +1,36 @@
+﻿@inject UserManager<User> UserManager
+
+<nav id="sidebar" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+    <div class="sidebar-sticky">
+        <ul class="nav flex-column mb-8">
+            <a class="navbar-brand sidebar-heading mt-8" asp-area="" asp-controller="Home" asp-action="Index">CarRental</a>
+            <li class="nav-item">
+                <a class="nav-link active" href="/">
+                    <span data-feather="home"></span>
+                    Dashboard
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-dark" asp-area="" asp-controller="Reservation" asp-action="Index"><span data-feather="file"></span>Reservations</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/">
+                    <span data-feather="shopping-cart"></span>
+                    Booking History
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-dark" asp-area="" asp-controller="Car" asp-action="Index"><span data-feather="truck"></span>Cars</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" asp-area="" asp-controller="User" asp-action="Details">
+                    <span data-feather="users"></span>
+                    Profile Settings
+                </a>
+            </li>
+        </ul>
+        <div class="sidebar-account">
+            <partial name="_LoginPartial" />
+        </div>
+    </div>
+</nav>

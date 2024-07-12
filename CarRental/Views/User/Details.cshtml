@@ -1,0 +1,41 @@
+﻿@model User
+
+@{
+    ViewData["Title"] = "User Details";
+}
+
+<div class="container my-5">
+
+    <h1 class="text-center">@ViewData["Title"]</h1>
+    <div class="row justify-content-center">
+        <partial name="_SideBar" />
+        <div class="col-md-6">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h1 class="mb-4 text-center">@Model.FirstName @Model.LastName</h1>
+                    <hr />
+                    <div class="mb-3">
+                        <strong>City:</strong> @Model.City
+                    </div>
+                    <div class="mb-3">
+                        <strong>Country:</strong> @Model.Country
+                    </div>
+                    <div class="mb-3">
+                        <strong>Email:</strong> @Model.Email
+                    </div>
+                    <div class="mb-3">
+                        <strong>Phone Number:</strong> @Model.PhoneNumber
+                    </div>
+                    <div class="mb-3">
+                        <strong>Date of Birth:</strong> @Model.DateOfBirth
+                    </div>
+                    <div class="mb-3">
+                        <strong>Address:</strong> @Model.AddressLine1 @Model.AddressLine2
+                    </div>
+                    <a asp-controller="User" asp-action="Edit" class="w-100 btn btn-lg btn-primary">Edit data</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
