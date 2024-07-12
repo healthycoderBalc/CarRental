@@ -42,8 +42,8 @@ namespace CarRental.Models
                 {
                     var usersList = new User[]
                                 {
-                        new User { FirstName = "Peter", LastName = "Parker", EmailAddress = "peter.parker@example.com", Password = "IamSpiderman", PhoneNumber = "1234567890", DateOfBirth = new DateTime(1988, 12, 17), AddressLine1 ="Spider Street 123" , City = "Spider City", Country = "United States", DriversLicenseNumber = "789654123" },
-                          new User { FirstName = "Michelle", LastName = "Jones", EmailAddress = "michelle.jones@example.com", Password = "IamMJ", PhoneNumber = "1234567898", DateOfBirth = new DateTime(1992, 11, 19), AddressLine1 ="MJ Street 123" , City = "MJ City", Country = "United States", DriversLicenseNumber = "789564123" },
+                        new User { FirstName = "Peter", LastName = "Parker", Email = "peter.parker@example.com", Password = "IamSpiderman", PhoneNumber = "1234567890", DateOfBirth = new DateTime(1988, 12, 17), AddressLine1 ="Spider Street 123" , City = "Spider City", Country = "United States", DriversLicenseNumber = "789654123" },
+                          new User { FirstName = "Michelle", LastName = "Jones", Email = "michelle.jones@example.com", Password = "IamMJ", PhoneNumber = "1234567898", DateOfBirth = new DateTime(1992, 11, 19), AddressLine1 ="MJ Street 123" , City = "MJ City", Country = "United States", DriversLicenseNumber = "789564123" },
                                 };
 
                     users = new List<User>();

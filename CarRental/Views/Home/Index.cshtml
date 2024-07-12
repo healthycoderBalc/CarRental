@@ -5,56 +5,30 @@
 
 <div class="container-fluid">
     <div class="row">
-        <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
-            <div class="sidebar-sticky">
-                <ul class="nav flex-column">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#">
-                            <span data-feather="home"></span>
-                            Dashboard <span class="sr-only">(current)</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <span data-feather="file"></span>
-                            Reservations
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <span data-feather="shopping-cart"></span>
-                            Booking History
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <span data-feather="users"></span>
-                            Profile Settings
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
+     <partial name="_SideBar" />
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
             <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                 <h1 class="h2">Welcome</h1>
             </div>
-            @* <div class="col-md-12 mt-3 text-center"> *@
-                @* <a asp-controller="Car" asp-action"Search" class="btn btn-primary">Search</a> *@
-            @* </div> *@
             <partial name="_SearchForm" />
-            <p>Here you will find today's available Cars</p>
+            <div class="row justify-content-center">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h3 class="text-center mb-4">THESE ARE OUR CARS</h3>
 
-            <div class="row">
-                @foreach (var car in Model.Cars)
-                {
-                    <div class="col-md-4 mb-3">
-                        <partial name="_CarCard" model="car" />
+                        <div class="row">
+                            @foreach (var car in Model.Cars)
+                            {
+                                <div class="col-md-4 mb-3">
+                                    <partial name="_CarCard" model="car" />
+                                </div>
+                            }
+                        </div>
                     </div>
-                }
+                </div>
             </div>
         </main>
-     
+
     </div>
 </div>
 

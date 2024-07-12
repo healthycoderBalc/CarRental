@@ -1,9 +1,11 @@
 ﻿using CarRental.Repositories;
 using CarRental.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+    using Microsoft.AspNetCore.Authorization;
 
 namespace CarRental.Controllers
 {
+    [Authorize]
     public class ReservationController : Controller
     {
         private readonly IReservationRepository _reservationRepository;

@@ -14,15 +14,15 @@ namespace CarRental.Repositories
         }
         public IEnumerable<User> GetAllUsers()
         {
-           return _dbContext.Users
-                .Include(u => u.Reservations);
+            return _dbContext.Users
+                 .Include(u => u.Reservations);
         }
 
         public User? GetUserById(int id)
         {
             return _dbContext.Users
                .Include(u => u.Reservations)
-               .Where(u => u.Id == id)
+               .Where(u => u.Id == id.ToString())
                .FirstOrDefault();
         }
     }

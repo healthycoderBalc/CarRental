@@ -1,0 +1,160 @@
+﻿@page
+@model RegisterModel
+@{
+    ViewData["Title"] = "Register";
+}
+
+<h1 class="text-center">@ViewData["Title"]</h1>
+
+<div class="row justify-content-center">
+    <div class="col-md-9">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
+                    <h2 class="text-center mb-4">Create a new account</h2>
+                    <hr />
+                    <div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert"></div>
+                    <div class="row">
+                        <div class="form-floating mb-3 col-md-6">
+                            <input asp-for="Input.FirstName" class="form-control" placeholder="First Name*" />
+                            <label asp-for="Input.FirstName" class="ms-3 text-black-50">First Name*</label>
+                            <span asp-validation-for="Input.FirstName" class="text-danger"></span>
+                        </div>
+                        <div class="form-floating mb-3 col-md-6">
+                            <input asp-for="Input.LastName" class="form-control" placeholder="Last Name" />
+                            <label asp-for="Input.LastName" class="ms-3 text-black-50">Last Name*</label>
+                            <span asp-validation-for="Input.LastName" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-floating mb-3 col-md-6">
+                            <input asp-for="Input.Email" class="form-control" autocomplete="username" placeholder="name@example.com" />
+                            <label asp-for="Input.Email" class="ms-3 text-black-50">Email*</label>
+                            <span asp-validation-for="Input.Email" class="text-danger"></span>
+                        </div>
+                        <div class="form-floating mb-3 col-md-6">
+                            <input asp-for="Input.PhoneNumber" class="form-control" placeholder="Phone Number" />
+                            <label asp-for="Input.PhoneNumber" class="ms-3 text-black-50">Phone Number*</label>
+                            <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-floating mb-3 col-md-6">
+                            <input asp-for="Input.Password" class="form-control" autocomplete="new-password" placeholder="Password" id="password" />
+                            <label asp-for="Input.Password" class="ms-3 text-black-50">Password*</label>
+                            <span asp-validation-for="Input.Password" class="text-danger"></span>
+                            <div id="password-strength" class="mt-2"></div>
+                        </div>
+                        <div class="form-floating mb-3 col-md-6">
+                            <input asp-for="Input.ConfirmPassword" class="form-control" autocomplete="new-password" placeholder="Confirm Password" />
+                            <label asp-for="Input.ConfirmPassword" class="ms-3 text-black-50">Confirm Password*</label>
+                            <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-floating mb-3 col-md-6">
+                            <input asp-for="Input.DateOfBirth" class="form-control text-black-50" placeholder="Date of Birth" />
+                            <label asp-for="Input.DateOfBirth" class="ms-3 text-black-50">Date of Birth</label>
+                            <span asp-validation-for="Input.DateOfBirth" class="text-danger"></span>
+                        </div>
+                        <div class="form-floating mb-3 col-md-6">
+                            <input asp-for="Input.DriversLicenseNumber" class="form-control" placeholder="Driver's License Number" />
+                            <label asp-for="Input.DriversLicenseNumber" class="ms-3 text-black-50">Driver's License Number*</label>
+                            <span asp-validation-for="Input.DriversLicenseNumber" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-floating mb-3 col-md-6">
+                            <input asp-for="Input.AddressLine1" class="form-control" placeholder="Address Line 1" />
+                            <label asp-for="Input.AddressLine1" class="ms-3 text-black-50">Address Line 1*</label>
+                            <span asp-validation-for="Input.AddressLine1" class="text-danger"></span>
+                        </div>
+                        <div class="form-floating mb-3 col-md-6">
+                            <input asp-for="Input.AddressLine2" class="form-control" placeholder="Address Line 2" />
+                            <label asp-for="Input.AddressLine2" class="ms-3 text-black-50">Address Line 2</label>
+                            <span asp-validation-for="Input.AddressLine2" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-floating mb-3 col-md-6">
+                            <input asp-for="Input.City" class="form-control" placeholder="City" />
+                            <label asp-for="Input.City" class="ms-3 text-black-50">City*</label>
+                            <span asp-validation-for="Input.City" class="text-danger"></span>
+                        </div>
+                        <div class="form-floating mb-3 col-md-6">
+                            <select asp-for="Input.Country" class="form-control" asp-items="Model.Countries"></select>
+                            <label asp-for="Input.Country" class="ms-3 text-black-50">Country*</label>
+                            <span asp-validation-for="Input.Country" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary">Register</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var passwordInput = document.getElementById('password');
+            var strengthIndicator = document.getElementById('password-strength');
+
+            passwordInput.addEventListener('input', function () {
+                var strength = getPasswordStrength(passwordInput.value);
+                var strengthText = '';
+                var strengthClass = '';
+
+                switch (strength) {
+                    case 0:
+                        strengthText = 'Very Weak';
+                        strengthClass = 'text-danger';
+                        break;
+                    case 1:
+                        strengthText = 'Weak';
+                        strengthClass = 'text-warning';
+                        break;
+                    case 2:
+                        strengthText = 'Fair';
+                        strengthClass = 'text-info';
+                        break;
+                        strengthText = 'Good';
+                        strengthClass = 'text-primary';
+                        break;
+                    case 4:
+                        strengthText = 'Strong';
+                        strengthClass = 'text-success';
+                        break;
+                    default:
+                        strengthText = '';
+                        strengthClass = '';
+                        break;
+                }
+
+                strengthIndicator.textContent = strengthText;
+                strengthIndicator.className = strengthClass;
+            });
+
+            function getPasswordStrength(password) {
+                var strength = 0;
+                if (password.length >= 6) {
+                    strength++;
+                }
+                if (password.match(/[a-z]+/)) {
+                    strength++;
+                }
+                if (password.match(/[A-Z]+/)) {
+                    strength++;
+                }
+                if (password.match(/[0-9]+/)) {
+                    strength++;
+                }
+                if (password.match(/[$@@#&!]+/)) {
+                strength++;
+            }
+            return strength;
+        }
+    });
+</script>
+}

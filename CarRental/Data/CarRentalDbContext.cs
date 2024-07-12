@@ -1,14 +1,14 @@
 ﻿
 using CarRental.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace CarRental.Data
 {
-    public class CarRentalDbContext : DbContext
+    public class CarRentalDbContext : IdentityDbContext<User>
     {
         public CarRentalDbContext(DbContextOptions<CarRentalDbContext> options) : base(options) { }
 
-        public DbSet<User> Users { get; set; }
         public DbSet<Car> Cars { get; set; }
         public DbSet<Reservation> Reservations { get; set; }
 
@@ -23,10 +23,6 @@ namespace CarRental.Data
             modelBuilder.Entity<Reservation>()
                 .Property(mi => mi.TotalPrice)
                 .HasColumnType("decimal(18,2)");
-
-            modelBuilder.Entity<User>()
-                .HasIndex(u => u.EmailAddress)
-                .IsUnique();
         }
     }
 

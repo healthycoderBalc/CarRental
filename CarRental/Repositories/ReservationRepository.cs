@@ -65,7 +65,7 @@ namespace CarRental.Repositories
             return _dbContext.Reservations
                 .Include(r => r.User)
                 .Include(r => r.Car)
-                .Where(r => r.User.Id == userId);
+                .Where(r => r.User.Id == userId.ToString());
         }
 
 
